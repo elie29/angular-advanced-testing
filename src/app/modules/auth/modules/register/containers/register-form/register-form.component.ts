@@ -9,7 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
-import { RegisterValidator } from '../../validators/register.valdiator';
+import { RegisterValidator } from '../../validators/register.validator';
 
 @Component({
   selector: 'app-register-form',
