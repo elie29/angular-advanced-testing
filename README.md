@@ -29,3 +29,11 @@ Run `git checkout master`
 ## Final project
 
 Run `git checkout final-project`
+
+## Testing
+
+Run `npm run test:coverage` for coverage test and `npm run test` for running tests in watching mode.
+
+## Coverage results
+
+Run `npm run test:cover`
