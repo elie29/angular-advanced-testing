@@ -1,0 +1,12 @@
+.meta {
+  color: #9A9A9A
+}
+
+.num-label {
+  margin: 0 2px 0 4px !important;
+  cursor: pointer;
+}
+
+.hide-label + .label {
+  display: none !important;
+}

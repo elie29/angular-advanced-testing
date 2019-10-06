@@ -1,0 +1,25 @@
+<!-- Menu Bar -->
+<div class="ui menu">
+  <div class="ui container">
+    <div class="header item borderless">
+      <h1 class="ui header">{{ title }}</h1>
+    </div>
+    <div class="ui secondary menu">
+      <!-- Elvis operator !! -->
+      <a class="item"
+        routerLink="articles"
+        routerLinkActive="active green"
+        *ngIf="user?.authenticated">Articles
+      </a>
+      <div class="right menu">
+        <ng-container *ngIf="user?.authenticated; else connected">
+          <a class="item" (click)="onLogout()">Logout</a>
+        </ng-container>
+        <ng-template #connected>
+          <a class="item" routerLink="auth/login" routerLinkActive="active green">Login</a>
+          <a class="item" routerLink="auth/register" routerLinkActive="active green">register</a>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

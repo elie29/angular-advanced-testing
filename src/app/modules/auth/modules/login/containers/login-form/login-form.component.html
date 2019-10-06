@@ -1,0 +1,41 @@
+<form class="ui form teal segment" #f="ngForm" (ngSubmit)="onLogin()">
+  <h3 class="ui header">Login</h3>
+  <div class="ui negative message" *ngIf="message">{{ message }}</div>
+  <div class="field">
+    <!-- id for label, name for ngModel -->
+    <label for="email">Email:</label>
+    <input type="text"
+      name="email"
+      id="email"
+      placeholder="Email"
+      ngModel
+      email
+      #email="ngModel"/>
+  </div>
+  <div class="ui negative message"
+    *ngIf="email.errors && (email.dirty || email.touched)">
+    <p *ngIf="email.hasError('email')">Email is required and must be valid</p>
+  </div>
+  <div class="field">
+    <label for="password">Password:</label>
+    <input type="password"
+      name="password"
+      id="password"
+      placeholder="Password"
+      ngModel
+      required
+      minlength="4"
+      #password="ngModel"/>
+  </div>
+  <div class="ui negative message"
+    *ngIf="password.errors && (password.dirty || password.touched)">
+    <p *ngIf="password.hasError('required')">Password is required</p>
+    <p *ngIf="password.hasError('minlength')">Password must be at least 4 characters long</p>
+  </div>
+  <button
+    class="ui positive right floated button"
+    type="submit"
+    [disabled]="f.invalid"
+  >Login
+  </button>
+</form>

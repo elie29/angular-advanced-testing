@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'semantic-ui-css/semantic.min.css';
+
+.form:after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.secondary {
+  width: 50%;
+}

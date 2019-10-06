@@ -1,0 +1,66 @@
+<form class="ui form teal segment" [formGroup]="form" (ngSubmit)="onRegister()">
+  <h3 class="ui header">Create new user</h3>
+
+  <div class="ui negative message" *ngIf="message">{{ message }}</div>
+
+  <ng-container formGroupName="name">
+    <div class="ui negative message" *ngIf="isNameIsEmpty">
+      Firstname and Lastname are required
+    </div>
+    <div class="field">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" formControlName="firstName" />
+    </div>
+    <div class="field">
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" formControlName="lastName" />
+    </div>
+    <div class="ui negative message" *ngIf="isLastNameMaxLength">
+        Lastname max length should be less than eight characters
+    </div>
+  </ng-container>
+
+  <div class="field">
+    <label for="email">Email:</label>
+    <input type="text" id="email" formControlName="email" />
+  </div>
+  <div class="ui negative message" *ngIf="emailRequiredOrForbidden">
+      {{ emailRequiredOrForbidden }}
+  </div>
+
+  <div class="field">
+    <label for="password">Password:</label>
+    <input type="text" id="password" formControlName="password" />
+  </div>
+  <div class="ui negative message" *ngIf="passwordRequiredOrStrong">
+      {{ passwordRequiredOrStrong }}
+  </div>
+
+  <ng-container formArrayName="languages">
+    <div class="field">
+      <button class="ui basic teal button" type="button" (click)="addLanguage()">
+        <i class="icon plus square"></i>
+        Add Language
+      </button>
+    </div>
+    <div class="ui info message" *ngIf="languages.invalid">
+      Language field should contain a string between 2 and 4 characters
+    </div>
+    <div class="field" *ngFor="let c of languages.controls; index as i;">
+      <div class="ui action mini input">
+        <input type="text" [formControlName]="i" placeholder="e.g. FR"/>
+        <button class="ui icon button" type="button" (click)="removeLanguage(i)">
+          <i class="trash alternate icon"></i>
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <button
+    class="ui positive right floated button"
+    type="submit"
+    [disabled]="!form.valid || loading"> <!-- pending or invalid -->
+    Register
+  </button>
+
+</form>

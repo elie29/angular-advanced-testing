@@ -1,0 +1,11 @@
+.form {
+  background-color: #F1F9FF;
+  margin-top: 2em;
+  &:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}

@@ -1,0 +1,13 @@
+<app-article-item-votes [article]="article"></app-article-item-votes>
+
+<div class="twelve wide column">
+  <a class="ui large header" href="{{ article.getLink() }}" target="_blank">{{ article.getTitle() }}</a>
+
+  <app-article-item-meta [article]="article"></app-article-item-meta>
+
+  <ul class="ui big horizontal list voters">
+    <li class="item"><a href (click)="upvote()"><i class="arrow up icon"></i>upvote</a></li>
+    <li class="item"><a href (click)="downvote()"><i class="arrow down icon"></i>downvote</a></li>
+    <li class="item"><a href (click)="delete()"><i class="arrow trash icon"></i>delete</a></li>
+  </ul>
+</div>
