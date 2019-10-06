@@ -161,7 +161,7 @@ describe('test the store', () => {
     store.set<User>('user', {
       timestamp: Date.now(),
       email: 'test@test.com',
-      authenticated: true,
+      authenticated: true
     });
 
     const value = store.value;
@@ -176,7 +176,7 @@ describe('test the store', () => {
     store.set<User>('user', {
       timestamp: Date.now(),
       email: 'test@test.com',
-      authenticated: true,
+      authenticated: true
     });
 
     const value = { ...store.value }; // make a new reference of the whole state

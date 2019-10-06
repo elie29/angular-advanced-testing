@@ -5,7 +5,7 @@ import { distinctUntilChanged, pluck } from 'rxjs/operators';
 import { DEFAULT_STATE, State } from './state';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class Store {
   private store = new BehaviorSubject<State>(DEFAULT_STATE);
@@ -36,6 +36,6 @@ export class Store {
 
   // reset the whole store
   reset(): void {
-    this.store.next(DEFAULT_STATE);
+    this.store.next({ ...DEFAULT_STATE });
   }
 }
